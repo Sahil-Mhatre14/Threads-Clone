@@ -13,13 +13,14 @@ const LeftSidebar = () => {
 
   console.log("pathname", pathname);
   
+  
 
   return (
     <section className="custom-scrollbar leftsidebar">
       <div className="flex w-full flex-1 flex-col gap-6 px-6">
         {sidebarLinks?.map((link) => {
           const isActive =
-            pathname === link?.route || pathname?.includes(link?.route);
+            pathname === link?.route && pathname?.includes(link?.route);
           return (
             <Link
               href={link?.route}
