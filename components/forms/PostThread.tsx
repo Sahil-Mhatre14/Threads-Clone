@@ -1,30 +1,21 @@
 "use client";
 
-import React, { ChangeEvent, useState } from "react";
-import { Form } from "../ui/form";
-import { useForm } from "react-hook-form";
-import { UserValidation } from "@/lib/validations/user";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
+  FormMessage
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import Image from "next/image";
-import { Textarea } from "../ui/textarea";
-import { isBase64Image } from "@/lib/utils";
-import { useUploadThing } from "@/lib/uploadthing";
-import updateUser from "@/lib/actions/user.actions";
-import { useRouter } from "next/navigation";
-import { usePathname } from "next/navigation";
-import { ThreadValidation } from "@/lib/validations/thread";
 import createThread from "@/lib/actions/thread.actions";
+import { ThreadValidation } from "@/lib/validations/thread";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { usePathname, useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Form } from "../ui/form";
+import { Textarea } from "../ui/textarea";
 
 const PostThread = ({ userId }: { userId: string }) => {
   const router = useRouter();
