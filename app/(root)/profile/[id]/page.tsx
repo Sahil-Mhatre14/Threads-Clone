@@ -9,6 +9,7 @@ import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { profileTabs } from "@/constants";
 import Image from "next/image";
+import ThreadsTab from "@/components/shared/ThreadsTab";
 
 const Page = async ({ params }: { params: { id: string } }) => {
   if (!params.id) return null;
@@ -57,6 +58,18 @@ const Page = async ({ params }: { params: { id: string } }) => {
               );
             })}
           </TabsList>
+          {
+            profileTabs?.map((tab) => {
+                return <TabsContent key={`content-${tab?.label}`} value={tab?.value}
+                className="w-full text-light-1">
+                    <ThreadsTab
+                      currentUserId={user.id}
+                      accountId={userInfo.id}
+                      accountType="User"
+                    />
+                </TabsContent>
+            })
+          }
         </Tabs>
       </div>
     </div>
