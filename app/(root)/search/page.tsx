@@ -33,9 +33,9 @@ const Page = async () => {
 
   return (
     <section>
-      <h1>Search Page</h1>
+      <h1 className="head-text text-left">Search Page</h1>
 
-      <div className="mt14 flex flex-col gap-9">
+      <div className="mt-14 flex flex-col gap-9">
         {results.users.length === 0 ? (
           <p>No users found</p>
         ) : (
